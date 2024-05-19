@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+// import { useAuthStore } from '@/stores/auth'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -6,20 +7,20 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      meta: { layout: 'not-auth' },
+      meta: { layout: 'not-auth', auth: false },
       component: () => import('@/views/Login/LoginPage.vue')
     },
     {
       path: '/register',
       name: 'register',
-      meta: { layout: 'not-auth' },
+      meta: { layout: 'not-auth', auth: false },
       component: () => import('@/views/Register/RegisterPage.vue')
     },
     {
       path: '/',
       name: 'default',
       redirect: '/home/list',
-      meta: { layout: 'default' },
+      meta: { layout: 'default', auth: true },
       children: [
         {
           path: '/home',
@@ -64,6 +65,16 @@ const router = createRouter({
       ]
     }
   ]
+})
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.auth && !localStorage.getItem('userTokens')) {
+    next('/login')
+  } else if (!to.meta.auth && localStorage.getItem('userTokens')) {
+    next('/')
+  } else {
+    next()
+  }
 })
 
 export default router
