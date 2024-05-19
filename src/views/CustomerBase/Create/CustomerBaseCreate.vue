@@ -1,5 +1,16 @@
 <script setup>
-import { Flex, Card, Form, FormItem, Input, Button, Space, Textarea, Select, SelectOption } from 'ant-design-vue'
+import {
+  Flex,
+  Card,
+  Form,
+  FormItem,
+  Input,
+  Button,
+  Space,
+  Textarea,
+  Select,
+  SelectOption
+} from 'ant-design-vue'
 import { DiscountOptions } from '@/models/selectOptions'
 import { InstagramOutlined } from '@ant-design/icons-vue'
 import RouteButton from '@/components/RouteButton.vue'
@@ -15,7 +26,6 @@ const ClientForm = reactive({
   events: '',
   notes: ''
 })
-
 
 const submitForm = () => {
   console.log(ClientForm)

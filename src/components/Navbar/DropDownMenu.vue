@@ -2,6 +2,17 @@
 import { UserOutlined } from '@ant-design/icons-vue'
 import { h } from 'vue'
 import { Dropdown, Button, Menu, MenuItem, MenuDivider } from 'ant-design-vue'
+import { useAuthStore } from '@/stores/auth'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+const authStore = useAuthStore()
+
+const logout = () => {
+  authStore.logout()
+  localStorage.removeItem('userTokens')
+  router.push('/login')
+}
 </script>
 
 <template>
@@ -19,7 +30,7 @@ import { Dropdown, Button, Menu, MenuItem, MenuDivider } from 'ant-design-vue'
         </MenuItem>
         <MenuDivider />
         <MenuItem key="1">
-          <RouterLink to="/login">Выйти</RouterLink>
+          <RouterLink to="/login" @click.prevent="logout">Выйти</RouterLink>
         </MenuItem>
       </Menu>
     </template>
