@@ -1,13 +1,7 @@
 <template>
-  <div>
-    Login
-  </div>
+  <div>Login</div>
 </template>
 
-<script setup>
+<script setup></script>
 
-</script>
-
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
