@@ -1,10 +1,5 @@
-    <script setup>
-    
-    </script>
+<script setup></script>
 
 <template>
-  <div>
-    Register
-  </div>
+  <div>Register</div>
 </template>
-

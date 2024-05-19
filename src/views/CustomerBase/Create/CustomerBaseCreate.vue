@@ -1,13 +1,7 @@
 <template>
-  <div>
-    Add client
-  </div>
+  <div>Add client</div>
 </template>
 
-<script setup>
+<script setup></script>
 
-</script>
-
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
